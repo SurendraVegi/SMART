@@ -9,9 +9,10 @@ import org.thymeleaf.dialect.springdata.SpringDataDialect;
 public class SmartAppApplication {
 
 	public static void main(String[] args) {
+		// test
 		SpringApplication.run(SmartAppApplication.class, args);
 	}
-	//testtststst
+
 	@Bean
 	public SpringDataDialect springDataDialect() {
 		return new SpringDataDialect();
