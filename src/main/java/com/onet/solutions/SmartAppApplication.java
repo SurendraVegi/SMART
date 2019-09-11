@@ -11,6 +11,7 @@ public class SmartAppApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SmartAppApplication.class, args);
 	}
+	//test
 	@Bean
 	public SpringDataDialect springDataDialect() {
 		return new SpringDataDialect();
