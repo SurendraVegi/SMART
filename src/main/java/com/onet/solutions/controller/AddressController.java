@@ -64,6 +64,7 @@ public class AddressController {
         }
         m.addAttribute("address", address);
         m.addAttribute("karyawan", empDao.findAll());
+        log.debug("info:first::");
         return "address/form";
     }
 

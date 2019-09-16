@@ -12,12 +12,12 @@ import com.onet.solutions.controller.AddressController;
 @SpringBootApplication
 public class SmartAppApplication {
 	
-	public static final Logger log = LoggerFactory.getLogger(AddressController.class);
+	public static final Logger log = LoggerFactory.getLogger(SmartAppApplication.class);
 
 	public static void main(String[] args) {
 		// test
 		
-		 log.info("info:smart app first log::");
+		 log.debug("info:smart app first log::");
 		SpringApplication.run(SmartAppApplication.class, args);
 	}
 

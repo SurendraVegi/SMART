@@ -141,15 +141,15 @@
             <ul class="sidebar-menu">
                 <li class="header">Menu</li>
 
-                <li class="treeview" id="datamaster" sec:authorize="hasAuthority('ADMIN')">
+                <li class="treeview" id="datamaster" sec:authorize="hasRole('ADMIN')">
                     <a href="#"><i class="fa fa-th"></i> <span>Data Master</span>
                         <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/employee/list}">Employee</a></li>
-                        <li sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/address/list}">Address</a></li>
+                        <li sec:authorize="hasRole('ADMIN')"><a th:href="@{/employee/list}">Employee</a></li>
+                        <li sec:authorize="hasRole('ADMIN')"><a th:href="@{/address/list}">Address</a></li>
 
                     </ul>
                 </li>
