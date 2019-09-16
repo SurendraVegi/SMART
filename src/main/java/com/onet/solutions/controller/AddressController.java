@@ -18,6 +18,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * @author : Otorus
  * @since : 1/10/18
@@ -25,12 +28,16 @@ import javax.validation.Valid;
 @Controller
 //priya update
 public class AddressController {
+	
+	 public static final Logger log = LoggerFactory.getLogger(AddressController.class);
 
     @Autowired
     private EmployeeDao empDao;
 
     @Autowired
     private AddressDao addressDao;
+    
+    
 
 
     @RequestMapping("/address/list")
@@ -39,6 +46,9 @@ public class AddressController {
         if (value != null) {
             model.addAttribute("key", value);
             model.addAttribute("data", addressDao.findByNamaContainingIgnoreCase(value, pageable));
+            
+            log.info("info:first::");
+            
         } else {
             model.addAttribute("data", addressDao.findAll(pageable));
         }
