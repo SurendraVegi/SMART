@@ -77,6 +77,7 @@ public class EmployeeTest {
 
     @Test
     public void testCariById() {
+    	//kavya
     	Employee karyawan = karyawanDao.findOne("4");
         Assert.assertNotNull(karyawan);
         Assert.assertEquals("Nami", karyawan.getNama());
