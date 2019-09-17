@@ -29,7 +29,7 @@ import org.slf4j.LoggerFactory;
 //priya update
 public class AddressController {
 	
-	 public static final Logger log = LoggerFactory.getLogger(AddressController.class);
+	public final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private EmployeeDao empDao;
@@ -51,6 +51,7 @@ public class AddressController {
             
         } else {
             model.addAttribute("data", addressDao.findAll(pageable));
+            log.info("info:first::");
         }
         return "address/list";
 
@@ -64,7 +65,7 @@ public class AddressController {
         }
         m.addAttribute("address", address);
         m.addAttribute("karyawan", empDao.findAll());
-        log.debug("info:first::");
+        log.debug("debug::first");
         return "address/form";
     }
 

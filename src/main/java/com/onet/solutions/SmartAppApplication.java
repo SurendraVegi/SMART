@@ -16,10 +16,12 @@ public class SmartAppApplication {
 
 	public static void main(String[] args) {
 		// test
-		
-		 log.debug("info:smart app first log::");
+		log.debug("debug");
+		log.info("info");
 		SpringApplication.run(SmartAppApplication.class, args);
 	}
+	
+
 
 	@Bean
 	public SpringDataDialect springDataDialect() {
