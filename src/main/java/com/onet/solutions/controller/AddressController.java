@@ -21,6 +21,11 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import	com.sap.conn.jco.JCoDestination;
+
+
+
+
 /**
  * @author : Otorus
  * @since : 1/10/18
@@ -37,7 +42,7 @@ public class AddressController {
     @Autowired
     private AddressDao addressDao;
     
-    
+  JCoDestination destination;
 
 
     @RequestMapping("/address/list")

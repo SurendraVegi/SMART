@@ -17,6 +17,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.sql.DataSource;
+import	com.sap.conn.jco.JCoDestination;
 
 /**
  * @author : Otorus
@@ -44,7 +45,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		// TODO Auto-generated method stub
 		return new BCryptPasswordEncoder();
 	}
-
+	
+	
 
 
     @Override

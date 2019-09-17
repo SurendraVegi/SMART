@@ -51,6 +51,12 @@
             <scope>runtime</scope>
         </dependency>
         <dependency>
+    <groupId>org.hibersap</groupId>
+    <artifactId>sapjco3</artifactId>
+    <version>3.0-RC02</version>
+</dependency>
+        
+        <dependency>
             <groupId>io.github.jpenren</groupId>
             <artifactId>thymeleaf-spring-data-dialect</artifactId>
             <version>3.3.1</version>
@@ -68,6 +74,9 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
+        
+      
+        
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
