@@ -3,17 +3,31 @@ package com.onet.solutions.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Task {
+	
 	@Id
+    /*@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "task_sequence")
+    @GenericGenerator(
+        name = "task_sequence", 
+        strategy = "com.onet.solutions.entity.StringPrefixedSequenceIdGenerator", 
+        parameters = {
+        		@org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = "50"),
+        		@org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "B_"),
+        		@org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })*/
+	
+	
 	@GeneratedValue
 	private Long id;
+	
 	@NotEmpty
 	private String date;
 	@NotEmpty

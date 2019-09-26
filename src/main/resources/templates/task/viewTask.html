@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
+<head>
+<title>Task</title>
+</head>
+<body>
+<div layout:fragment="breadcrumb">
+    <h1>Task List</h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Task List</li>
+    </ol>
+</div>
+	<div layout:fragment="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-primary">
+            
+		 <div class="box-body">
+
+                    <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+					<thead>
+						<tr>
+						<th>User</th>
+							<th>Date</th>
+							<th>Start Time</th>
+							<th>Stop Time</th>
+							<td>Description</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="task:${tasks}">
+						<td th:text="${task.user.email}"></td>
+							<td th:text="${task.date}"></td>
+							<td th:text="${task.startTime}"></td>
+							<td th:text="${task.stopTime}"></td>
+							<td th:text="${task.description}"></td>
+						</tr>
+					</tbody>
+
+				</table>
+			</div>
+		</div>
+		
+	</div>
+	</div>
+	</div>
+	</div>
+</body>
+</html>

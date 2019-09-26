@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{fragments/main_layout}">
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
 <head>
-<title>Index Page</title>
+<title>Task List</title>
 </head>
 <body>
 
@@ -28,7 +26,7 @@
 						<tr th:each="user:${users}">
 							<td th:text="${user.name}"></td>
 							<td th:text="${user.email}"></td>
-							<td><a  th:href="@{/addTask(email=${user.email})}" class="btn btn-dark">AddTask</a></td>
+							<td><a  th:href="@{/task/addTask(email=${user.email})}" class="btn btn-dark">AddTask</a></td>
 						</tr>
 					</tbody>
 

@@ -1,0 +1,84 @@
+<!--/* Thymeleaf templating engine, Each token will be replaced by their respective titles in the resulting page. */-->
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
+<head>
+<title>Task Form</title>
+</head>
+<body>
+
+<div layout:fragment="breadcrumb">
+    <h1>Add Task</h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Add Task</li>
+    </ol>
+</div>
+
+	<div layout:fragment="content">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">&nbsp;</h3>
+                </div>
+                
+		<form th:action="@{/task/addTask}" th:object="${task}" method="post">
+	<div class="box-body">
+			<div class="form-group">
+				<label for="Date" class="form-control-label">Date</label> <input
+					type="date" class="form-control" th:field="*{date}" id="date" />
+					<!--  <div class="text text-danger" th:if="${#fields.hasErrors('date')}"
+					th:errors="*{date}"></div>-->
+					
+					<label class="control-label error-label" th:errors="*{date}">
+                                Error Message
+                     </label>
+				
+			</div>
+			<div class="form-group">
+				<label for="startTime" class="form-control-label">StartTime</label>
+				<input type="time" class="form-control" th:field="*{startTime}"
+					id="startTime" />
+					<!-- <div class="text text-danger"
+					th:if="${#fields.hasErrors('startTime')}" th:errors="*{startTime}"></div>-->
+				<label class="control-label error-label" th:errors="*{startTime}">
+                                Error Message
+                     </label>
+
+			</div>
+			<div class="form-group">
+				<label for="stopTime" class="form-control-label">Stop Time</label> <input
+					type="time" class="form-control" th:field="*{stopTime}"
+					id="stopTime" />
+					<!--  <div class="text text-danger"
+					th:if="${#fields.hasErrors('stopTime')}" th:errors="*{stopTime}"></div>-->
+					
+					<label class="control-label error-label" th:errors="*{stopTime}">
+                                Error Message
+                     </label>
+				
+               </div>
+				<div class="form-group">
+					<label for="description" class="form-control-label">Description</label>
+					<textarea   class="form-control" th:field="*{description}"
+						id="description">  </textarea>
+					
+				<!--  <div class="text text-danger"
+						th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>-->
+						
+						<label class="control-label error-label" th:errors="*{description}">
+                                Error Message
+                     </label>
+
+				</div>
+				
+				
+				<input type="submit" value="Submit" class="btn btn-primary" />
+		</div>
+				
+		</form>
+	  </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

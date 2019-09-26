@@ -148,8 +148,10 @@
                                 </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li sec:authorize="hasRole('ADMIN')"><a th:href="@{/employee/list}">Employee</a></li>
+                        <li sec:authorize="hasRole('ADMIN')"><a th:href="@{/users}">Employee</a></li>
                         <li sec:authorize="hasRole('ADMIN')"><a th:href="@{/address/list}">Address</a></li>
+                         <li sec:authorize="hasRole('ADMIN')"><a th:href="@{/task/viewTask}">All Tasks</a></li>
+                          <li sec:authorize="hasRole('ADMIN')"><a th:href="@{/task/myTask}">My Tasks</a></li>
 
                     </ul>
                 </li>

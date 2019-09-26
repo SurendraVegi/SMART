@@ -42,7 +42,8 @@ public class AddressController {
     @Autowired
     private AddressDao addressDao;
     
-  JCoDestination destination; 
+    //@Autowired
+   // private JCoDestination destination; 
 
 
     @RequestMapping("/address/list")

@@ -23,5 +23,11 @@ public class TaskService {
 		
 		return taskRepository.findByUser(user);
 	}
+	
+public List<Task>  findTasks(){
+		
+		return taskRepository.findAll();
+	}
+
 
 }

@@ -18,6 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.sql.DataSource;
 import	com.sap.conn.jco.JCoDestination;
+import com.sap.conn.jco.rt.RfcCustomizedDestination;
 
 /**
  * @author : Otorus
@@ -48,7 +49,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	
 
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
@@ -63,9 +63,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/reset_password/**").permitAll()
                 .antMatchers("/forgot").permitAll()
                 .antMatchers("/register").permitAll()
-
+               
 
                 .antMatchers("/address/**").hasAnyRole("ADMIN,USER")
+                .antMatchers("/task/**").hasAnyRole("ADMIN,USER")
                 .antMatchers("/employee/**").hasAnyRole("ADMIN,USER")
                 
                 //.antMatchers("/address/**").permitAll()
