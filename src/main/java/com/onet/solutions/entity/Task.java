@@ -1,18 +1,24 @@
 package com.onet.solutions.entity;
 
+import java.io.Serializable;
+import java.security.Principal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
-public class Task {
+public class Task extends AuditFields<String> implements Serializable{
 	
 	@Id
     /*@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "task_sequence")
@@ -24,6 +30,7 @@ public class Task {
         		@org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "B_"),
         		@org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })*/
 	
+
 	
 	@GeneratedValue
 	private Long id;
@@ -37,8 +44,9 @@ public class Task {
 	@NotEmpty
 	@Column(length=1000)
 	private String description;
-	@ManyToOne
-	@JoinColumn(name="USER_EMAIL")
+	@OneToOne(fetch = FetchType.EAGER, optional = false)
+   
+	@JoinColumn(name="USER_EMAIL", nullable = false)
 	private User user;
 	
 	public Long getId() {
@@ -77,6 +85,9 @@ public class Task {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
+
+
 	public Task(String date, String startTime, String stopTime, String description, User user) {
 		this.date = date;
 		this.startTime = startTime;

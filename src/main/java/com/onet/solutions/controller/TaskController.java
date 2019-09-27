@@ -36,9 +36,6 @@ public class TaskController {
 	 @GetMapping("/task/viewTask")
 		public String showProfilePage(Model model, Principal principal) {
 			
-			String email = principal.getName();
-			User user = userService.findOne(email);
-			
 			model.addAttribute("tasks", taskService.findTasks());
 			
 			log.info("taskss :::::::::"+taskService.findTasks());
@@ -84,6 +81,8 @@ public class TaskController {
 		 }
 		 String email = (String) session.getAttribute("email");
 		 taskService.addTask(task, userService.findOne(email));
+		 		 
+		
 		 
 		return  "redirect:/task/viewTask";
 	 }

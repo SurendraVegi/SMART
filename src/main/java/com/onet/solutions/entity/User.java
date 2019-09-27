@@ -1,22 +1,25 @@
 package com.onet.solutions.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-public class User {
+public class User implements Serializable{
 
 	@Id
 	@Email
@@ -25,10 +28,24 @@ public class User {
 	private String email;
 	@NotEmpty
 	private String name;
+	@NotEmpty
+	private String status;
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	@Size(min = 4)
 	private String password;
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-	private List<Task> tasks;
+	
+	
+	@OneToOne(fetch = FetchType.EAGER,
+            cascade =  CascadeType.ALL,
+            mappedBy = "user")
+	private Task tasks;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "USER_ROLES", joinColumns={
@@ -60,11 +77,11 @@ public class User {
 		this.password = password;
 	}
 
-	public List<Task> gettasks() {
+	public Task gettasks() {
 		return tasks;
 	}
 
-	public void settasks(List<Task> tasks) {
+	public void settasks(Task tasks) {
 		this.tasks = tasks;
 	}
 
@@ -76,10 +93,22 @@ public class User {
 		this.roles = roles;
 	}
 
-	public User(String email, String name, String password) {
+	
+
+	public User(String email, String name, String status, String password) {
+		super();
+		this.email = email;
+		this.name = name;
+		this.status = status;
+		this.password = password;
+	}
+
+	public User(String email, String name, String password,String status, Task task) {
 		this.email = email;
 		this.name = name;
 		this.password = password;
+		this.status = status;
+		this.tasks = task;
 	}
 
 	public User() {

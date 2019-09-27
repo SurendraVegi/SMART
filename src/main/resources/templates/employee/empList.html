@@ -36,6 +36,7 @@
 						<tr>
 							<th>Name</th>
 							<th>Email</th>
+							<th>Task</th>
 							<th>Add</th>
 							<th>Edit/Delete</th>
 						</tr>
@@ -44,7 +45,15 @@
 						<tr th:each="user:${users}">
 							<td th:text="${user.name}"></td>
 							<td th:text="${user.email}"></td>
-							<td><a  th:href="@{/task/addTask(email=${user.email})}" class="box-title btn btn-primary">AddTask</a></td>
+							<td th:text="${user.status}"></td>
+							<td>
+						
+						
+							 
+							
+							<a  th:if="${user.status != 'Busy'}"  th:href="@{/task/addTask(email=${user.email})}" class="box-title btn btn-primary">AddTask</a>
+							
+							</td>
 							
 							<td>
                                     <a href="#" class="btn btn-default" th:href="@{/employee/form(email=${user.email})}"
