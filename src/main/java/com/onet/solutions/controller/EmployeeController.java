@@ -1,6 +1,6 @@
 package com.onet.solutions.controller;
 
-import com.onet.solutions.dao.EmployeeDao;
+import com.onet.solutions.dao.EmployeeRepository;
 import com.onet.solutions.entity.Employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ import javax.validation.Valid;
 @Controller
 public class EmployeeController {
     @Autowired
-    private EmployeeDao employeeDao;
+    private EmployeeRepository employeeDao;
 
 
     @GetMapping("/employee/list")

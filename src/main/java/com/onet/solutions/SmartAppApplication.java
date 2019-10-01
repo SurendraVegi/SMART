@@ -47,20 +47,21 @@ public class SmartAppApplication implements CommandLineRunner{
 	 public void run(String... args) throws Exception {
 	        // Clean up database tables
 	      
-	        //catalogRepository.deleteAllInBatch();
+	       // catalogRepository.deleteAllInBatch();
+	        //codeGroupRepository.deleteAllInBatch();
 
 	        //=========================================
 
 	        // Create a User instance
-	        Catalog cat = new Catalog("Rajeev");
-	        CodeGroup cg = new CodeGroup("Rajeev");
+	       // Catalog cat = new Catalog("Rajeev","cat desc");
+	        //CodeGroup cg = new CodeGroup("Rajeev","");
  
 
 
 	      
 	        // Save Parent Reference (which will save the child as well)
-	        catalogRepository.save(cat);
-	        codeGroupRepository.save(cg);
+	        //catalogRepository.save(cat);
+	        //codeGroupRepository.save(cg);
 
 	        //=========================================
 	    }

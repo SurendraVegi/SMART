@@ -1,7 +1,7 @@
 package com.onet.solutions.controller;
 
-import com.onet.solutions.dao.AddressDao;
-import com.onet.solutions.dao.EmployeeDao;
+import com.onet.solutions.dao.AddressRepository;
+import com.onet.solutions.dao.EmployeeRepository;
 import com.onet.solutions.entity.Address;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +16,19 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Properties;
+
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import	com.sap.conn.jco.JCoDestination;
+
+
+import com.sap.conn.jco.ext.DestinationDataProvider;
+import com.sap.conn.jco.JCoDestination;
+import com.sap.conn.jco.JCoException;
+import com.sap.conn.jco.JCoDestinationManager;
 
 
 
@@ -37,13 +44,15 @@ public class AddressController {
 	public final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    private EmployeeDao empDao;
+    private EmployeeRepository empDao;
 
     @Autowired
-    private AddressDao addressDao;
+    private AddressRepository addressDao;
     
     //@Autowired
    // private JCoDestination destination; 
+    
+    
 
 
     @RequestMapping("/address/list")
@@ -57,6 +66,28 @@ public class AddressController {
             
         } else {
             model.addAttribute("data", addressDao.findAll(pageable));
+            
+            
+           /* String DESTINATION_NAME1 = "mySAPSystem";
+            Properties connectProperties = new Properties();
+            connectProperties.setProperty(DestinationDataProvider.JCO_ASHOST, "124.123.42.25");
+            connectProperties.setProperty(DestinationDataProvider.JCO_SYSNR,  "48");
+            connectProperties.setProperty(DestinationDataProvider.JCO_CLIENT, "800");
+            connectProperties.setProperty(DestinationDataProvider.JCO_USER,   "pgopi");
+            connectProperties.setProperty(DestinationDataProvider.JCO_PASSWD, "AI@123");
+            connectProperties.setProperty(DestinationDataProvider.JCO_LANG,   "en");
+            createDestinationDataFile(DESTINATION_NAME1, connectProperties);
+
+            // This will use that destination file to connect to SAP
+            try {
+                JCoDestination destination = JCoDestinationManager.getDestination("mySAPSystem");
+                System.out.println("Attributes:");
+                System.out.println(destination.getAttributes());
+                System.out.println();
+                destination.ping();
+            } catch (JCoException e) {
+                e.printStackTrace();
+            }*/
             log.info("info:first::");
         }
         return "address/list";

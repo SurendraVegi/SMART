@@ -1,6 +1,6 @@
 package com.onet.smartapp.unitTest;
 
-import com.onet.solutions.dao.EmployeeDao;
+import com.onet.solutions.dao.EmployeeRepository;
 import com.onet.solutions.entity.Employee;
 
 import org.junit.After;
@@ -31,7 +31,7 @@ import java.sql.SQLException;
 public class EmployeeTest {
 
     @Autowired
-    private EmployeeDao karyawanDao;
+    private EmployeeRepository karyawanDao;
 
     @Autowired
     private DataSource dataSource;
