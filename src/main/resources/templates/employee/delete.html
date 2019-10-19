@@ -20,22 +20,22 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" th:object="${employee}" method="post">
+                <form role="form" th:object="${user}" method="post">
 
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="nama">Name</label>
+                            <label for="name">Name</label>
                             <input type="text"
-                                   th:field="*{nama}"
-                                   name="nama" class="form-control" id="nama" placeholder="Nama" disabled/>
+                                   th:field="*{name}"
+                                   name="name" class="form-control" id="name" placeholder="Name" disabled/>
                         </div>
 
 
                         <div class="form-group">
-                            <label for="nama">Information</label>
+                            <label for="email">Email</label>
                             <input type="text"
-                                   th:field="*{keterangan}"
-                                   name="keterangan" class="form-control" id="keterangan" placeholder="Keterangan"
+                                   th:field="*{email}"
+                                   name="email" class="form-control" id="email" placeholder="email"
                                    disabled/>
                         </div>
 

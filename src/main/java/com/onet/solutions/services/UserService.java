@@ -61,5 +61,15 @@ public class UserService {
 		// TODO Auto-generated method stub
 		return  userRepository.findByNameLike("%"+name+"%");
 	}
+	
+	public void delete(User user) {
+		
+		userRepository.delete(user);
+	}
+	
+public void save(User user) {
+		
+		userRepository.save(user);
+	}
 
 }
