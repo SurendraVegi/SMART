@@ -37,7 +37,10 @@ public class UserController {
 		
 		List<User> usersListUpdated= new ArrayList<User>();
 		
-		List<User> usersList= userService.findAll();
+		List<User> usersList= userService.findAll();  
+		
+		
+		
 		for (User user : usersList) {
 			Task task = user.gettasks();
 			log.info("task"+user.gettasks());

@@ -16,7 +16,9 @@ public class CatalogService {
 	private CatalogRepository catalogRepository;
 	
 	
-	public void addTask(Catalog catalog) {
+	public void addCatalog(Catalog catalog) {
+		
+		
 		
 			catalogRepository.save(catalog);
 	}
@@ -27,5 +29,12 @@ public List<Catalog>  findCatalogs(){
 		
 		return catalogRepository.findAll();
 	}
+
+
+
+public List<Catalog> findAll() {
+	// TODO Auto-generated method stub
+	return null;
+}
 
 }

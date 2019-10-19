@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layout}">
+<head>
+<title>Employee</title>
+</head>
+<body>
+<div layout:fragment="breadcrumb">
+    <h1>Catalog Form</h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Catalog</li>
+    </ol>
+</div>
+
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">&nbsp;</h3>
+                </div>
+		<form th:action="@{/catalog/addCatalog}" th:object="${catalog}" method="post">
+                    <div class="box-body">
+                         <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control"  id="name" name="name"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="desc"> Description</label>
+                            <input type="text" class="form-control" id="cat_desc" name="cat_desc"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                       
+                        <div class="form-group">
+                            <a th:href="@{/catalog/catList}" class="btn btn-default" role="button" title="Back list">
+                                <span aria-hidden="true"></span>Cancel
+                            </a>
+                            <button type="submit" class="box-title btn btn-primary" title="Save Data">Save</button>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>

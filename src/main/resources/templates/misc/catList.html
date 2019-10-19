@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
+<head>
+<title>Catalog</title>
+</head>
+<body>
+<div layout:fragment="breadcrumb">
+    <h1>Catalog List</h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Catalog List</li>
+    </ol>
+</div>
+	<div layout:fragment="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-primary">
+            
+		 <div class="box-body">
+
+                    <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+					<thead>
+						<tr>
+						<th>Id</th>
+							<th>Name</th>
+							<th>Desc</th>
+							
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="cat:${cats}">
+						<td th:text="${cat.id}"></td>
+							<td th:text="${cat.name}"></td>
+							<td th:text="${cat.cat_desc}"></td>
+							
+						
+						</tr>
+					</tbody>
+
+				</table>
+			</div>
+		</div>
+		
+	</div>
+	</div>
+	</div>
+	</div>
+</body>
+</html>
