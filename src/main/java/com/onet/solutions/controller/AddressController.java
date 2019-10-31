@@ -25,10 +25,10 @@ import org.slf4j.LoggerFactory;
 
 
 
-import com.sap.conn.jco.ext.DestinationDataProvider;
+/*import com.sap.conn.jco.ext.DestinationDataProvider;
 import com.sap.conn.jco.JCoDestination;
 import com.sap.conn.jco.JCoException;
-import com.sap.conn.jco.JCoDestinationManager;
+import com.sap.conn.jco.JCoDestinationManager;*/
 
 
 

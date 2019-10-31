@@ -41,7 +41,23 @@ public class CodeGroup extends AuditFields<String>  implements Serializable{
     private String status;
 
     
-    @ManyToOne(fetch = FetchType.LAZY, cascade =  CascadeType.ALL,optional = false)
+    public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public Catalog getCatalog() {
+		return catalog;
+	}
+
+	public void setCatalog(Catalog catalog) {
+		this.catalog = catalog;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY, cascade =  CascadeType.ALL,optional = false)
     @JoinColumn(name = "cat_id", nullable = false)
     private Catalog catalog;
 

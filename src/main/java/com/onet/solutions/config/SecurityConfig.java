@@ -17,8 +17,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.sql.DataSource;
-import	com.sap.conn.jco.JCoDestination;
-import com.sap.conn.jco.rt.RfcCustomizedDestination;
+//import	com.sap.conn.jco.JCoDestination;
+//import com.sap.conn.jco.rt.RfcCustomizedDestination;
 
 /**
  * @author : Otorus
