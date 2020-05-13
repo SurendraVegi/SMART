@@ -1,9 +1,12 @@
 package com.onet.solutions.controller;
 
+import java.io.IOException;
+import java.io.OutputStream;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -17,10 +20,15 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.onet.solutions.entity.Catalog;
 
 import com.onet.solutions.services.CatalogService;
+
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperPrint;
 
 @Controller
 public class CatalogController {
@@ -35,6 +43,25 @@ public class CatalogController {
 						
 			return "misc/Catalog";
 		}
+	 
+	
+	  @GetMapping("/catalog/report") 
+	  public void generateReport(HttpServletResponse response) throws JRException, IOException {
+	  
+	  
+	  JasperPrint jasperPrint = null;
+	  
+	  response.setContentType("application/x-download");
+	  response.setHeader("Content-Disposition",String.format("attachment; filename=\"catalogList.pdf\""));
+	  
+	  OutputStream out = response.getOutputStream(); 
+	  jasperPrint 	   = catalogService.exportReport();
+	  JasperExportManager.exportReportToPdfStream(jasperPrint, out);
+	  
+	 
+	  
+	  }
+	 
 	 
 	 
 	 @PostMapping("/catalog/addCatalog")

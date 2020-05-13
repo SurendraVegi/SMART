@@ -26,6 +26,9 @@
     <!--Bootstrap Select-->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css"/>
+          
+     <link rel="stylesheet"
+          href="https://adminlte.io/themes/AdminLTE/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css"/>     
 
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -41,6 +44,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
+            
+              <script src="https://adminlte.io/themes/AdminLTE/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+                <script src="https://adminlte.io/themes/AdminLTE/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+                
+                
     <script src="#" th:src="@{/js/app.min.js}"></script>
     <script src="#" th:src="@{/js/jquery.slimscroll.min.js}"></script>
     <script src="#" th:src="@{/js/select2.full.min.js}"></script>
@@ -55,6 +63,15 @@
             } else {
                 Cookies.set('menu-dd', "user");
             }
+            
+            $('#aistable').DataTable({
+                'paging'      : true,
+                'lengthChange': true,
+                'searching'   : true,
+                'ordering'    : true,
+                'info'        : true,
+                'autoWidth'   : false
+              });
 
             $(".treeview").each(function () {
                 $(this).click(function () {
@@ -167,6 +184,10 @@
                     <ul class="treeview-menu">
                         <li><a th:href="@{/catalog/catForm}">Catalog </a></li>
                          <li><a th:href="@{/catalog/catList}">CatalogList </a></li>
+                         <li><a th:href="@{/equip/equipCreateForm}">Equipment Creation </a></li>
+                         <li><a th:href="@{/equip/equipList}">Equipment List </a></li>
+                         <li><a th:href="@{/equip/measPoint}">Measuring Point Creation </a></li>
+                         <li><a th:href="@{/equip/measCount}">Measuring Count</a></li>
 
                     </ul>
                     

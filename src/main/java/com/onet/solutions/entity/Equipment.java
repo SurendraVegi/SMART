@@ -98,7 +98,7 @@ public class Equipment extends AuditFields<String>{
 	}
 
 	public void setFL(String fL) {
-		FL = fL;
+		this.FL = fL;
 	}
 
 	public String getFL_name() {
@@ -106,7 +106,7 @@ public class Equipment extends AuditFields<String>{
 	}
 
 	public void setFL_name(String fL_name) {
-		FL_name = fL_name;
+		this.FL_name = fL_name;
 	}
 
 	public String getManufacturer() {
@@ -186,8 +186,8 @@ public class Equipment extends AuditFields<String>{
 			String modelNo, String serialNo, String status) {
 		super();
 		this.equip_desc = equip_desc;
-		FL = fL;
-		FL_name = fL_name;
+		this.FL = fL;
+		this.FL_name = fL_name;
 		this.manufacturer = manufacturer;
 		this.manufacturerPartNo = manufacturerPartNo;
 		this.manufacturerCountry = manufacturerCountry;
@@ -197,6 +197,14 @@ public class Equipment extends AuditFields<String>{
 		this.modelNo = modelNo;
 		this.serialNo = serialNo;
 		this.status = status;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public Equipment() {

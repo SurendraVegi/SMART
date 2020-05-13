@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
 <head>
-<title>Catalog</title>
+<title>Equipment</title>
 </head>
 <body>
 <div layout:fragment="breadcrumb">
-    <h1>Catalog List</h1>
+    <h1>Equipment List</h1>
     <ol class="breadcrumb">
         <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Catalog List</li>
+        <li class="active">Equipment List</li>
     </ol>
 </div>
 	<div layout:fragment="content">
@@ -24,17 +24,19 @@
 						<tr>
 						<th>Id</th>
 							<th>Name</th>
-							<th>Desc</th>
+							<th>Status</th>
 							
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="cat:${cats}">
-						<td th:text="${cat.id}"></td>
-							<td th:text="${cat.name}"></td>
-							<td th:text="${cat.cat_desc}"></td>
-							
+						<tr th:each="equip:${equips}">
+						<!-- <td th:text="${equip.id}"></td>-->
 						
+						<td><a  th:href="@{/equip/equipDetails/{id}(id=${equip.id})}" class="btn btn-dark"><span th:text="${equip.id}"></span></a></td>
+						
+							<td th:text="${equip.equip_desc}"></td>
+							<td th:text="${equip.status}"></td>
+													
 						</tr>
 					</tbody>
 
@@ -42,6 +44,7 @@
 			</div>
 			
 			
+			<!-- <a th:href="@{/students/edit/{id}(id=${student.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a>-->
              <div class="form-group">
                 
                  <button type="submit" class="box-title btn btn-primary" title="report">Report</button>

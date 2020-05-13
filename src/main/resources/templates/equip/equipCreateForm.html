@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layout}">
+<head>
+<title>Equipment</title>
+</head>
+<body>
+<div layout:fragment="breadcrumb">
+    <h1>Equipment Form</h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Equipment</li>
+    </ol>
+</div>
+
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">&nbsp;</h3>
+                </div>
+		<form th:action="@{/equip/equipCreate}" th:object="${equipment}" method="post">
+                    <div class="box-body">
+                    <div class="col-md-6">
+                         <div class="form-group">
+                            <label for="equip_desc">Equip Description</label>
+                            <input type="text" class="form-control"  id="equip_desc" name="equip_desc"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="status"> Status</label>
+                            <input type="text" class="form-control" id="status" name="status"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="FL"> Functional Location</label>
+                            <input type="text" class="form-control" id="FL" name="FL"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                         <div class="form-group">
+                            <label for="FL_name"> FL Name</label>
+                            <input type="text" class="form-control" id="FL_name" name="FL_name"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                        
+                         <div class="form-group">
+                            <label for="modelNo"> ModelNo</label>
+                            <input type="text" class="form-control" id="modelNo" name="modelNo"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                         <div class="form-group">
+                            <label for="serialNo"> SerialNo</label>
+                            <input type="text" class="form-control" id="serialNo" name="serialNo"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                       
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="manufacturer"> Manufacturer</label>
+                            <input type="text" class="form-control" id="manufacturer" name="manufacturer"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="manufacturerPartNo">Manufacturer PartNo</label>
+                            <input type="text" class="form-control"  id="manufacturerPartNo" name="manufacturerPartNo"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="manufacturerCountry"> Manufacturer Country</label>
+                            <input type="text" class="form-control" id="manufacturerCountry" name="manufacturerCountry"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                         <div class="form-group">
+                            <label for="manufacturerConYear"> Manufacturer Year</label>
+                            <input type="text" class="form-control" id="manufacturerConYear" name="manufacturerConYear"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                         <div class="form-group">
+                            <label for="shelflife"> Shelf Life</label>
+                            <input type="text" class="form-control" id="shelflife" name="shelflife"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="acquisitionValue">Acquisition Value</label>
+                            <input type="text" class="form-control"  id="acquisitionValue" name="acquisitionValue"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                       
+                         
+                        </div>
+                        
+                        
+
+                       
+                        <div class="form-group">
+                            <a th:href="@{/equip/equipList}" class="btn btn-default" role="button" title="Back list">
+                                <span aria-hidden="true"></span>Cancel
+                            </a>
+                            <button type="submit" class="box-title btn btn-primary" title="Save Data">Save</button>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>
