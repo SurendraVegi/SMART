@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.onet.solutions.entity.Equipment;
-import com.onet.solutions.entity.Equipmentreadings;
+import com.onet.solutions.entity.Readings;
 import com.onet.solutions.entity.MeasuringPoint;
 import com.onet.solutions.entity.Task;
 import com.onet.solutions.services.EquipmentReadingService;

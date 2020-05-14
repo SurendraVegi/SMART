@@ -1,5 +1,7 @@
 package com.onet.solutions.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +14,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class Equipmentreadings {
+public class Readings extends AuditFields<String>{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "mease_seq")
@@ -29,7 +31,7 @@ public class Equipmentreadings {
 	
 	@NotNull
 	  @Size(max = 100)
-	  private String meas_point_num;
+	  private String meas_pointnum;
 	
 	@NotNull
 	  @Size(max = 100)
@@ -41,11 +43,11 @@ public class Equipmentreadings {
 	
 	@NotNull
 	  @Size(max = 100)
-	  private String tot_cnt_reading;
+	  private String tot_cntreading;
 	
 	@NotNull
 	  @Size(max = 10)
-	  private String UOM;
+	  private String uom;
 
 	public String getId() {
 		return id;
@@ -55,12 +57,12 @@ public class Equipmentreadings {
 		this.id = id;
 	}
 
-	public String getMeas_point_num() {
-		return meas_point_num;
+	public String getMeas_pointnum() {
+		return meas_pointnum;
 	}
 
-	public void setMeas_point_num(String meas_point_num) {
-		this.meas_point_num = meas_point_num;
+	public void setMeas_pointnum(String meas_pointnum) {
+		this.meas_pointnum = meas_pointnum;
 	}
 
 	public String getCounter_reading() {
@@ -79,41 +81,40 @@ public class Equipmentreadings {
 		this.difference = difference;
 	}
 
-	public String getTot_cnt_reading() {
-		return tot_cnt_reading;
+	public String getTot_cntreading() {
+		return tot_cntreading;
 	}
 
-	public void setTot_cnt_reading(String tot_cnt_reading) {
-		this.tot_cnt_reading = tot_cnt_reading;
+	public void setTot_cntreading(String tot_cntreading) {  
+		this.tot_cntreading = tot_cntreading;
 	}
 
-	public String getUOM() {
-		return UOM;
+	
+	public String getUom() {
+		return uom;
 	}
 
-	public Equipmentreadings(String meas_point_num, String counter_reading, String difference, String tot_cnt_reading,
+	public void setUom(String uom) {
+		this.uom = uom;
+	}
+
+	public Readings(String meas_pointnum, String counter_reading, String difference, String tot_cntreading,
 			String uOM) {
 		super();
-		this.meas_point_num = meas_point_num;
+		this.meas_pointnum = meas_pointnum;
 		this.counter_reading = counter_reading;
 		this.difference = difference;
-		this.tot_cnt_reading = tot_cnt_reading;
-		UOM = uOM;
+		this.tot_cntreading = tot_cntreading;
+		this.uom = uOM;
 	}
 
-	public void setUOM(String uOM) {
-		UOM = uOM;
-	}
 
-	public Equipmentreadings() {
+
+	public Readings() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public String toString() {
-		return "EquipmentReadings [meas_point_num=" + meas_point_num + ", counter_reading=" + counter_reading
-				+ ", difference=" + difference + ", tot_cnt_reading=" + tot_cnt_reading + ", UOM=" + UOM + "]";
-	}
+	
 
 }

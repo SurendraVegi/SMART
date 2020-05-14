@@ -20,7 +20,7 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">&nbsp;</h3>
                 </div>
-		<form th:action="@{/equip/equipReadingsCreate}" th:object="${equipmentreadings}" method="post">
+		<form th:action="@{/equipr/equipReadingsCreate}" th:object="${readings}" method="post">
                     <div class="box-body">
                          <div class="form-group">
                             <label for="uom">uom</label>
@@ -47,8 +47,8 @@
                        
                        
                          <div class="form-group">
-                            <label for="meas_point_num"> meas_point_num</label>
-                            <input type="text" class="form-control" id="meas_point_num" name="meas_point_num"
+                            <label for="meas_pointnum"> meas_point_num</label>
+                            <input type="text" class="form-control" id="meas_pointnum" name="meas_pointnum"
                                    placeholder=""/>
                             <label class="control-label error-label" >
                             </label>
@@ -56,8 +56,8 @@
                        
                        
                          <div class="form-group">
-                            <label for="tot_cnt_reading"> tot_cnt_reading</label>
-                            <input type="text" class="form-control" id="tot_cnt_reading" name="tot_cnt_reading"
+                            <label for="tot_cntreading"> tot_cnt_reading</label>
+                            <input type="text" class="form-control" id="tot_cntreading" name="tot_cntreading"
                                    placeholder=""/>
                             <label class="control-label error-label" >
                             </label>

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.onet.solutions.dao.EquipmentReadingRepository;
 import com.onet.solutions.entity.Equipment;
-import com.onet.solutions.entity.Equipmentreadings;
+import com.onet.solutions.entity.Readings;
 
 @Service
 public class EquipmentReadingService {
@@ -16,13 +16,13 @@ public class EquipmentReadingService {
 	private EquipmentReadingRepository equipReadRepository;
 
 	
-	public void addEquipReadings(Equipmentreadings equipmentReadings) {
+	public void addEquipReadings(Readings equipmentReadings) {
 
 		equipReadRepository.save(equipmentReadings);
 	}
 	
 	
-	public List<Equipmentreadings> findEquipReads() {
+	public List<Readings> findEquipReads() {
 
 		return equipReadRepository.findAll();
 	}

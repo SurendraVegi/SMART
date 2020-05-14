@@ -68,13 +68,7 @@ public class MeasuringPoint {
 		this.meas_desc = meas_desc;
 	}
 
-	public String getUOM() {
-		return UOM;
-	}
-
-	public void setUOM(String uOM) {
-		UOM = uOM;
-	}
+	
 
 	public String getTarget_val() {
 		return target_val;
@@ -125,7 +119,7 @@ public class MeasuringPoint {
 		this.equip_desc = equip_desc;
 		this.meas_pos = meas_pos;
 		this.meas_desc = meas_desc;
-		UOM = uOM;
+		this.uom = uOM;
 		this.equip_id = equip_id;
 		this.target_val = target_val;
 		this.lower_limit = lower_limit;
@@ -133,12 +127,14 @@ public class MeasuringPoint {
 		this.annaul_reading = annaul_reading;
 	}
 
-	@Override
-	public String toString() {
-		return "MeasuringPoint [equip=" + equip + ", equip_desc=" + equip_desc + ", meas_pos=" + meas_pos
-				+ ", meas_desc=" + meas_desc + ", UOM=" + UOM + ", equip_id=" + equip_id + ", target_val=" + target_val
-				+ ", lower_limit=" + lower_limit + ", upper_limit=" + upper_limit + ", annaul_reading=" + annaul_reading
-				+ "]";
+
+
+	public String getUom() {
+		return uom;
+	}
+
+	public void setUom(String uom) {
+		this.uom = uom;
 	}
 
 	public String getEquip() {
@@ -171,7 +167,7 @@ public class MeasuringPoint {
 	
 	@NotNull
 	  @Size(max = 10)
-	  private String UOM;
+	  private String uom;
 	
 	@NotNull
 	  @Size(max = 10)

@@ -16,13 +16,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.onet.solutions.entity.Equipmentreadings;
+import com.onet.solutions.entity.Readings;
 import com.onet.solutions.services.EquipmentReadingService;
 
 
 @Controller
 @RequestMapping("/equipr/")
-
 public class EquipmentReadingsController {
 	
 	public final Logger log = LoggerFactory.getLogger(this.getClass());
@@ -41,7 +40,7 @@ public class EquipmentReadingsController {
 
  
  @PostMapping("equipReadingsCreate")
- public String addEquipReadings(@Valid @ModelAttribute("equipmentreadings") Equipmentreadings equipreadings,BindingResult bindingResult) {
+ public String addEquipReadings(@Valid @ModelAttribute("readings") Readings equipreadings,BindingResult bindingResult) {
 	 if(bindingResult.hasErrors()) {
 		 
 		 log.info("issue in binding result");
@@ -61,7 +60,7 @@ public class EquipmentReadingsController {
  @GetMapping("equipReadsList")
 	public String listEquipmentsReadings(Model model) {
 					
-		List<Equipmentreadings> equipsReadings= equipReadService.findEquipReads();  
+		List<Readings> equipsReadings= equipReadService.findEquipReads();  
 		
 		model.addAttribute("equipsReadings", equipsReadings);
 		
