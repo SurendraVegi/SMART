@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layout}">
+<head>
+<title>Measuring Point</title>
+</head>
+<body>
+<div layout:fragment="breadcrumb">
+    <h1>Measuring Point</h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Measuring Point</li>
+    </ol>
+</div>
+
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">&nbsp;</h3>
+                </div>
+		<form th:action="@{/equip/measPointCreate}" th:object="${measuringpoint}" method="post">
+                    <div class="box-body">
+                     <div class="col-md-6">
+                     
+                         <div class="form-group">
+                            <label for="uom">UOM</label>
+                            <input type="text" class="form-control"  id="uom" name="uom"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label> 
+                        </div>
+                        
+                         <div class="form-group">
+                            <label for="equip">Equip</label>
+                            <input type="text" class="form-control"  id="equip" name="equip"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                        
+                         <div class="form-group">
+                            <label for="equip_desc">Equip Desc</label>
+                            <input type="text" class="form-control"  id="equip_desc" name="equip_desc"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                        
+                         <div class="form-group">
+                            <label for="meas_desc"> Measuring Description</label>
+                            <input type="text" class="form-control" id="meas_desc" name="meas_desc"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                        
+                         <div class="form-group">
+                            <label for="meas_pos"> Measuring Position</label>
+                            <input type="text" class="form-control" id="meas_pos" name="meas_pos"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                        </div>
+                        
+                         <div class="col-md-6">
+                        
+                        <div class="form-group">
+                            <label for="annaul_reading"> Annual Reading</label>
+                            <input type="text" class="form-control" id="annaul_reading" name="annaul_reading"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                        
+                         <div class="form-group">
+                            <label for="lower_limit"> Lower Limit</label>
+                            <input type="text" class="form-control" id="lower_limit" name="lower_limit"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                        
+                         <div class="form-group">
+                            <label for="upper_limit"> Upper Limit</label>
+                            <input type="text" class="form-control" id="upper_limit" name="upper_limit"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                        
+                         <div class="form-group">
+                            <label for="target_val"> Target Value</label>
+                            <input type="text" class="form-control" id="target_val" name="target_val"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                        
+                          
+                         <div class="form-group">
+                            <label for="equip_id"> Equip ID</label>
+                            <input type="text" class="form-control" id="equip_id" name="equip_id"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                       
+                       
+                       </div>
+                        <div class="form-group">
+                            <a th:href="@{/equip/equipList}" class="btn btn-default" role="button" title="Back list">
+                                <span aria-hidden="true"></span>Cancel
+                            </a>
+                            <button type="submit" class="box-title btn btn-primary" title="Save Data">Save</button>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div> 
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>

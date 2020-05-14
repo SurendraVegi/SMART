@@ -60,6 +60,7 @@ public class TaskController {
 	 @GetMapping("/task/addTask")
  public String taskForm(String email, Model model, HttpSession session) {
 		 
+		 log.info("email :::::::::"+email);
 		 session.setAttribute("email", email); 
 		 model.addAttribute("task", new Task());
 		 return "task/taskForm";

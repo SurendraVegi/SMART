@@ -7,6 +7,6 @@ import com.onet.solutions.entity.EquipmentReadings;
 
 
 @Repository
-public interface EquipmentReadingRepository extends JpaRepository<EquipmentReadings,Long>{
+public interface EquipmentReadingRepository extends JpaRepository<EquipmentReadings,String>{
 
 }

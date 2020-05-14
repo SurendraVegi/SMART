@@ -7,6 +7,6 @@ import com.onet.solutions.entity.MeasuringPoint;
 
 
 @Repository
-public interface MeasuringPointRepository extends JpaRepository<MeasuringPoint,Long>{
+public interface MeasuringPointRepository extends JpaRepository<MeasuringPoint,String>{
 
 }

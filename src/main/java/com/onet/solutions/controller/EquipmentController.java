@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.onet.solutions.entity.Equipment;
 import com.onet.solutions.entity.EquipmentReadings;
 import com.onet.solutions.entity.MeasuringPoint;
+import com.onet.solutions.entity.Task;
 import com.onet.solutions.services.EquipmentReadingService;
 import com.onet.solutions.services.EquipmentService;
 import com.onet.solutions.services.MeasuringPointService;
@@ -52,6 +53,23 @@ public class EquipmentController {
 			return "equip/equipCreateForm";
 		}
 	 
+	 @GetMapping("measPointCreate")
+		public String loadMPCreate(String equipid, Model model, HttpSession session) {
+		 
+		 log.info("equipid :::::::::"+equipid);
+		 
+		// session.setAttribute("equip", equipid); 
+		 //model.addAttribute("measuring_point", new MeasuringPoint());
+						
+			return "equip/measPointCreate";
+		}
+	 
+	 @GetMapping("equipReadingsCreate")
+		public String loadERCreate(Model model) {
+						
+			return "equip/equipReadingsCreate";
+		}
+	 
 	
 	 
 	 @PostMapping("equipCreate")
@@ -73,7 +91,7 @@ public class EquipmentController {
 	 }
 	 
 	 @PostMapping("measPointCreate")
-	 public String addMeasPoint(@Valid @ModelAttribute("measpoint") MeasuringPoint measpoint,BindingResult bindingResult) {
+	 public String addMeasPoint(@Valid @ModelAttribute("measuringpoint") MeasuringPoint measpoint,BindingResult bindingResult, HttpSession session) {
 		 if(bindingResult.hasErrors()) {
 			 
 			 log.info("issue in binding result");
@@ -82,16 +100,19 @@ public class EquipmentController {
 			    for (FieldError error : errors ) {
 			    	log.info (error.getObjectName() + " Binding Errors " + error.getDefaultMessage());
 			    } 
-			 return "equip/measCreateForm";
+			 return "equip/measPointCreate";
 		 }
-		 //String email = (String) session.getAttribute("email");
+		 String equipId = (String) session.getAttribute("equip");
+		 
+		// measPointService.addMeasPoints(measpoint, equipmentService.findOne(equipId));
+		 
 		 measPointService.addMeasPoints(measpoint);
 		 
 		return   "redirect:measPointList";
 	 }
 	 
-	 @PostMapping("equipReadings")
-	 public String addEquipReadings(@Valid @ModelAttribute("equipreadings") EquipmentReadings equipreadings,BindingResult bindingResult) {
+	 @PostMapping("equipReadingsCreate")
+	 public String addEquipReadings(@Valid @ModelAttribute("equipmentreadings") EquipmentReadings equipreadings,BindingResult bindingResult) {
 		 if(bindingResult.hasErrors()) {
 			 
 			 log.info("issue in binding result");
@@ -100,7 +121,7 @@ public class EquipmentController {
 			    for (FieldError error : errors ) {
 			    	log.info (error.getObjectName() + " Binding Errors " + error.getDefaultMessage());
 			    } 
-			 return "equip/equipReadsCreateForm";
+			 return "equip/equipReadingsCreate";
 		 }
 		 //String email = (String) session.getAttribute("email");
 		 equipReadService.addEquipReadings(equipreadings);
@@ -108,6 +129,25 @@ public class EquipmentController {
 		return   "redirect:equipReadsList";
 	 }
 	 
+	 @GetMapping("equipReadsList")
+		public String listEquipmentsReadings(Model model) {
+						
+			List<EquipmentReadings> equipsReadings= equipReadService.findEquipReads();  
+			
+			model.addAttribute("equipsReadings", equipsReadings);
+			
+			return "equip/equipReadsList";
+		}
+	 
+	 @GetMapping("measPointList")
+		public String listMeasuringPoint(Model model) {
+						
+			List<MeasuringPoint> measPoints= measPointService.findMeasPoints();  
+			
+			model.addAttribute("measPoints", measPoints);
+			
+			return "equip/measPointList";
+		}
 	 
 	 @GetMapping("equipList")
 		public String listEquipments(Model model) {

@@ -1,18 +1,31 @@
 package com.onet.solutions.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.TableGenerator;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class EquipmentReadings {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "mease_seq")
+	  @GenericGenerator(
+	      name = "mease_seq", 
+	      strategy = "com.onet.solutions.entity.SeqIdGen", 
+	      parameters = {
+	      		@org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = "1"),
+	      		@org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "ER"),
+	      		@org.hibernate.annotations.Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
+		@TableGenerator(table="mease_seq", name = "mease_seq")
+		@Column ( name = "id", nullable = false ) 
+	private String id;
 	
 	@NotNull
 	  @Size(max = 100)
@@ -20,25 +33,25 @@ public class EquipmentReadings {
 	
 	@NotNull
 	  @Size(max = 100)
-	  private double counter_reading;
+	  private String counter_reading;
 	
 	@NotNull
 	  @Size(max = 100)
-	  private double difference;
+	  private String difference;
 	
 	@NotNull
 	  @Size(max = 100)
-	  private double tot_cnt_reading;
+	  private String tot_cnt_reading;
 	
 	@NotNull
 	  @Size(max = 10)
-	  private double UOM;
+	  private String UOM;
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -50,35 +63,45 @@ public class EquipmentReadings {
 		this.meas_point_num = meas_point_num;
 	}
 
-	public double getCounter_reading() {
+	public String getCounter_reading() {
 		return counter_reading;
 	}
 
-	public void setCounter_reading(double counter_reading) {
+	public void setCounter_reading(String counter_reading) {
 		this.counter_reading = counter_reading;
 	}
 
-	public double getDifference() {
+	public String getDifference() {
 		return difference;
 	}
 
-	public void setDifference(double difference) {
+	public void setDifference(String difference) {
 		this.difference = difference;
 	}
 
-	public double getTot_cnt_reading() {
+	public String getTot_cnt_reading() {
 		return tot_cnt_reading;
 	}
 
-	public void setTot_cnt_reading(double tot_cnt_reading) {
+	public void setTot_cnt_reading(String tot_cnt_reading) {
 		this.tot_cnt_reading = tot_cnt_reading;
 	}
 
-	public double getUOM() {
+	public String getUOM() {
 		return UOM;
 	}
 
-	public void setUOM(double uOM) {
+	public EquipmentReadings(String meas_point_num, String counter_reading, String difference, String tot_cnt_reading,
+			String uOM) {
+		super();
+		this.meas_point_num = meas_point_num;
+		this.counter_reading = counter_reading;
+		this.difference = difference;
+		this.tot_cnt_reading = tot_cnt_reading;
+		UOM = uOM;
+	}
+
+	public void setUOM(String uOM) {
 		UOM = uOM;
 	}
 

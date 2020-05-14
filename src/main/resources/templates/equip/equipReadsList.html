@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layout}">
+<head>
+<title>Equipment Readings List</title>
+</head>
+<body>
+<div layout:fragment="breadcrumb">
+    <h1>Equipment Readings List</h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Equipment Readings List</li>
+    </ol>
+</div>
+
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">&nbsp;</h3>
+                </div>
+		<form th:action="@{/equip/addCatalog}" th:object="${equipmentreadings}" method="post">
+                    <div class="box-body">
+                         <div class="form-group">
+                            <label for="uom">uom</label>
+                            <input type="text" class="form-control"  id="uom" name="uom"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="counter_reading"> counter_reading</label>
+                            <input type="text" class="form-control" id="counter_reading" name="counter_reading"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                       
+                         <div class="form-group">
+                            <label for="difference"> difference</label>
+                            <input type="text" class="form-control" id="difference" name="difference"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                       
+                       
+                         <div class="form-group">
+                            <label for="meas_point_num"> meas_point_num</label>
+                            <input type="text" class="form-control" id="meas_point_num" name="meas_point_num"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                       
+                       
+                         <div class="form-group">
+                            <label for="tot_cnt_reading"> tot_cnt_reading</label>
+                            <input type="text" class="form-control" id="tot_cnt_reading" name="tot_cnt_reading"
+                                   placeholder=""/>
+                            <label class="control-label error-label" >
+                            </label>
+                        </div>
+                       
+                        <div class="form-group">
+                            
+                            <button type="submit" class="box-title btn btn-primary" title="Save Data">Save</button>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>
