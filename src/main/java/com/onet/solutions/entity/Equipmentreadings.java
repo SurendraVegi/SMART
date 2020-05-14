@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class EquipmentReadings {
+public class Equipmentreadings {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "mease_seq")
@@ -91,7 +91,7 @@ public class EquipmentReadings {
 		return UOM;
 	}
 
-	public EquipmentReadings(String meas_point_num, String counter_reading, String difference, String tot_cnt_reading,
+	public Equipmentreadings(String meas_point_num, String counter_reading, String difference, String tot_cnt_reading,
 			String uOM) {
 		super();
 		this.meas_point_num = meas_point_num;
@@ -105,7 +105,7 @@ public class EquipmentReadings {
 		UOM = uOM;
 	}
 
-	public EquipmentReadings() {
+	public Equipmentreadings() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

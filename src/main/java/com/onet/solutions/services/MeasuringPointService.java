@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.onet.solutions.dao.EquipmentRepository;
 import com.onet.solutions.dao.MeasuringPointRepository;
 import com.onet.solutions.entity.Equipment;
-import com.onet.solutions.entity.EquipmentReadings;
+import com.onet.solutions.entity.Equipmentreadings;
 import com.onet.solutions.entity.MeasuringPoint;
 
 @Service

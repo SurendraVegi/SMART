@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.onet.solutions.entity.Equipment;
-import com.onet.solutions.entity.EquipmentReadings;
+import com.onet.solutions.entity.Equipmentreadings;
 import com.onet.solutions.entity.MeasuringPoint;
 import com.onet.solutions.entity.Task;
 import com.onet.solutions.services.EquipmentReadingService;
@@ -43,9 +43,7 @@ public class EquipmentController {
 	 @Autowired
 	    private MeasuringPointService measPointService;
 	 
-	 @Autowired
-	    private EquipmentReadingService equipReadService;
-	 
+	
 	 
 	 @GetMapping("equipCreateForm")
 		public String loadEquipCreate(Model model) {
@@ -63,13 +61,6 @@ public class EquipmentController {
 						
 			return "equip/measPointCreate";
 		}
-	 
-	 @GetMapping("equipReadingsCreate")
-		public String loadERCreate(Model model) {
-						
-			return "equip/equipReadingsCreate";
-		}
-	 
 	
 	 
 	 @PostMapping("equipCreate")
@@ -111,33 +102,6 @@ public class EquipmentController {
 		return   "redirect:measPointList";
 	 }
 	 
-	 @PostMapping("equipReadingsCreate")
-	 public String addEquipReadings(@Valid @ModelAttribute("equipmentreadings") EquipmentReadings equipreadings,BindingResult bindingResult) {
-		 if(bindingResult.hasErrors()) {
-			 
-			 log.info("issue in binding result");
-			 
-			 List<FieldError> errors = bindingResult.getFieldErrors();
-			    for (FieldError error : errors ) {
-			    	log.info (error.getObjectName() + " Binding Errors " + error.getDefaultMessage());
-			    } 
-			 return "equip/equipReadingsCreate";
-		 }
-		 //String email = (String) session.getAttribute("email");
-		 equipReadService.addEquipReadings(equipreadings);
-		 
-		return   "redirect:equipReadsList";
-	 }
-	 
-	 @GetMapping("equipReadsList")
-		public String listEquipmentsReadings(Model model) {
-						
-			List<EquipmentReadings> equipsReadings= equipReadService.findEquipReads();  
-			
-			model.addAttribute("equipsReadings", equipsReadings);
-			
-			return "equip/equipReadsList";
-		}
 	 
 	 @GetMapping("measPointList")
 		public String listMeasuringPoint(Model model) {
